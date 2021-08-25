@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EASV.PetShop.Core
+namespace EASV.PetShop.UI
 {
     class Program
     {
