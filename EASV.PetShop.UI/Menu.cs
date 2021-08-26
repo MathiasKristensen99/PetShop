@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using EASV.PetShop.Core.IServices;
+using EASV.PetShop.Domain.Models;
 
 namespace EASV.PetShop.UI
 {
@@ -14,6 +16,7 @@ namespace EASV.PetShop.UI
 
         public void Start()
         {
+            ShowWelcomeGreeting();
             StartLoop();
         }
 
@@ -24,9 +27,31 @@ namespace EASV.PetShop.UI
             {
                 if (choice == 1)
                 {
-                    
+                    ShowAllPets();
                 }
             }
+        }
+
+        private void ShowAllPets()
+        {
+            List<Pet> allPets = _petService.GetAllPets();
+
+            foreach (Pet pet in allPets)
+            {
+                Console.WriteLine(pet.Id + " " + pet.Name +" " + pet.Color + " " + pet.Type + " " + pet.BirthDate + " " + pet.Price + " " + pet.SoldDate);
+            }
+        }
+
+        private void CreatePet()
+        {
+            Pet pet = new Pet();
+            
+        }
+        
+        private void ShowWelcomeGreeting()
+        {
+            Console.WriteLine(StringConstants.Welcome);
+            Console.WriteLine(StringConstants.SelectShowAllPets);
         }
         
         private int GetMainMenuSelection()

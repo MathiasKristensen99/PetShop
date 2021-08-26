@@ -28,5 +28,21 @@ namespace EASV.PetShop.DataAccess
             //TODO
             return allPets;
         }
+
+        public void CreatePet(Pet pet)
+        {
+            List<Pet> pets = GetAllPets();
+
+            Pet newPet = new Pet();
+            newPet.Id = pet.Id;
+            newPet.Name = pet.Name;
+            newPet.Price = pet.Price;
+            newPet.Type = pet.Type;
+            newPet.Color = pet.Color;
+            newPet.BirthDate = pet.BirthDate;
+            newPet.SoldDate = pet.SoldDate;
+            
+            pets.Add(newPet);
+        }
     }
 }
