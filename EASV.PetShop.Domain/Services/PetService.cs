@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EASV.PetShop.Core.IServices;
+using EASV.PetShop.Core.Models;
 using EASV.PetShop.Domain.IRepositories;
 using EASV.PetShop.Domain.Models;
 
@@ -27,6 +29,41 @@ namespace EASV.PetShop.Domain.Services
         public void DeletePet(int id)
         {
             _petRepository.DeletePet(id);
+        }
+
+        public void UpdatePetName(int id, string name)
+        {
+            _petRepository.UpdatePetName(id, name);
+        }
+
+        public void UpdatePetId(int id, int newId)
+        {
+            _petRepository.UpdatePetId(id, newId);
+        }
+
+        public void UpdatePetType(int id, PetType type)
+        {
+            _petRepository.UpdatePetType(id, type);
+        }
+
+        public void UpdateBirthDate(int id, DateTime birthdate)
+        {
+            _petRepository.UpdateBirthDate(id, birthdate);
+        }
+
+        public void UpdateSoldDate(int id, DateTime soldDate)
+        {
+            _petRepository.UpdateSoldDate(id, soldDate);
+        }
+
+        public void UpdatePetColor(int id, string color)
+        {
+            _petRepository.UpdatePetColor(id, color);
+        }
+
+        public void UpdatePetPrice(int id, double price)
+        {
+            _petRepository.UpdatePetPrice(id, price);
         }
     }
 }

@@ -19,6 +19,11 @@ namespace EASV.PetShop.DataAccess
             petType2.Id = 2;
             petType2.Name = "Cat";
             allPetTypes.Add(petType2);
+
+            PetType petType3 = new PetType();
+            petType3.Id = 3;
+            petType3.Name = "Goat";
+            allPetTypes.Add(petType3);
             
             return allPetTypes;
         }

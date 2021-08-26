@@ -1,6 +1,7 @@
 ﻿using System;
+using EASV.PetShop.Domain.Models;
 
-namespace EASV.PetShop.Domain.Models
+namespace EASV.PetShop.Core.Models
 {
     public class Pet
     {
