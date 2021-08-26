@@ -8,5 +8,7 @@ namespace EASV.PetShop.Domain.IRepositories
         List<Pet> GetAllPets();
 
         void CreatePet(Pet pet);
+
+        void DeletePet(int id);
     }
 }

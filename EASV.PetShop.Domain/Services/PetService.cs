@@ -23,5 +23,10 @@ namespace EASV.PetShop.Domain.Services
         {
             _petRepository.CreatePet(pet);
         }
+
+        public void DeletePet(int id)
+        {
+            _petRepository.DeletePet(id);
+        }
     }
 }

@@ -13,9 +13,11 @@ namespace EASV.PetShop.UI
         static void Main(string[] args)
         {
             IPetRepository repo = new PetRepository();
+            IPetTypeRepository petTypeRepository = new PetTypeRepository();
             IPetService service = new PetService(repo);
+            IPetTypeService petTypeService = new PetTypeService(petTypeRepository);
             
-            Menu menu = new Menu(service);
+            Menu menu = new Menu(service, petTypeService);
             menu.Start();
         }
     }
