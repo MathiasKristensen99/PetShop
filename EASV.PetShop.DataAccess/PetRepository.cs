@@ -9,10 +9,10 @@ namespace EASV.PetShop.DataAccess
 {
     public class PetRepository : IPetRepository
     {
+        public List<Pet> allPets = new List<Pet>();
+        
         public List<Pet> GetAllPets()
         {
-            List<Pet> allPets = new List<Pet>();
-
             PetType petType1 = new PetType();
             petType1.Id = 1;
             petType1.Name = "Dog";
@@ -55,13 +55,36 @@ namespace EASV.PetShop.DataAccess
             pet3.Price = 10000;
             allPets.Add(pet3);
 
+            Pet pet4 = new Pet();
+            pet4.Id = 4;
+            pet4.Name = "Julian";
+            pet4.BirthDate = DateTime.Today;
+            pet4.SoldDate = DateTime.Today;
+            pet4.Color = "Brown";
+            pet4.Type = petType1;
+            pet4.Price = 8000;
+            allPets.Add(pet4);
+
+            Pet pet5 = new Pet();
+            pet5.Id = 5;
+            pet5.Name = "Simon";
+            pet5.BirthDate = DateTime.Today;
+            pet5.SoldDate = DateTime.Today;
+            pet5.Color = "Black";
+            pet5.Type = petType2;
+            pet5.Price = 4000;
+            allPets.Add(pet5);
+            
+            return allPets;
+        }
+
+        public List<Pet> ReadAllPets()
+        {
             return allPets;
         }
 
         public void CreatePet(Pet pet)
         {
-            List<Pet> pets = GetAllPets();
-
             Pet newPet = new Pet();
             newPet.Id = pet.Id;
             newPet.Name = pet.Name;
@@ -71,12 +94,12 @@ namespace EASV.PetShop.DataAccess
             newPet.BirthDate = pet.BirthDate;
             newPet.SoldDate = pet.SoldDate;
             
-            pets.Add(newPet);
+            allPets.Add(newPet);
         }
 
         public void DeletePet(int id)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             foreach (Pet pet in pets.ToList())
             {
@@ -89,7 +112,7 @@ namespace EASV.PetShop.DataAccess
 
         public void UpdatePetName(int id, string name)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             pets.First(pet => pet.Id == id).Name = name;
             
@@ -103,7 +126,7 @@ namespace EASV.PetShop.DataAccess
 
         public void UpdatePetId(int id, int newId)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             pets.First(pet => pet.Id == id).Id = newId;
             
@@ -117,7 +140,7 @@ namespace EASV.PetShop.DataAccess
 
         public void UpdatePetType(int id, PetType type)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             pets.First(pet => pet.Id == id).Type = type;
             
@@ -131,7 +154,7 @@ namespace EASV.PetShop.DataAccess
 
         public void UpdateBirthDate(int id, DateTime birthdate)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             pets.First(pet => pet.Id == id).BirthDate = birthdate;
             
@@ -145,7 +168,7 @@ namespace EASV.PetShop.DataAccess
 
         public void UpdateSoldDate(int id, DateTime soldDate)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             pets.First(pet => pet.Id == id).SoldDate = soldDate;
             
@@ -159,7 +182,7 @@ namespace EASV.PetShop.DataAccess
 
         public void UpdatePetColor(int id, string color)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             pets.First(pet => pet.Id == id).Color = color;
             
@@ -174,7 +197,7 @@ namespace EASV.PetShop.DataAccess
 
         public void UpdatePetPrice(int id, double price)
         {
-            List<Pet> pets = GetAllPets();
+            List<Pet> pets = allPets;
 
             pets.First(pet => pet.Id == id).Price = price;
             

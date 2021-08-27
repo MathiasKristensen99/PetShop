@@ -9,6 +9,8 @@ namespace EASV.PetShop.Core.IServices
     {
         List<Pet> GetAllPets();
 
+        List<Pet> ReadAllPets();
+
         void CreatePet(Pet pet);
 
         void DeletePet(int id);

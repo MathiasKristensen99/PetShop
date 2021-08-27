@@ -20,6 +20,7 @@ namespace EASV.PetShop.UI
 
         public void Start()
         {
+            _petService.GetAllPets();
             ShowWelcomeGreeting();
             StartLoop();
         }
@@ -68,7 +69,7 @@ namespace EASV.PetShop.UI
 
         private void ShowAllPets()
         {
-            List<Pet> allPets = _petService.GetAllPets();
+            List<Pet> allPets = _petService.ReadAllPets();
 
             foreach (Pet pet in allPets)
             {
@@ -79,7 +80,7 @@ namespace EASV.PetShop.UI
 
         private void ShowCheapestPets()
         {
-            List<Pet> pets = _petService.GetAllPets();
+            List<Pet> pets = _petService.ReadAllPets();
 
             List<Pet> sortedPets = pets.OrderBy(pet => pet.Price).ToList();
 
@@ -92,7 +93,7 @@ namespace EASV.PetShop.UI
 
         private void ShowMostExpensivePets()
         {
-            List<Pet> pets = _petService.GetAllPets();
+            List<Pet> pets = _petService.ReadAllPets();
 
             List<Pet> sortedPets = pets.OrderByDescending(pet => pet.Price).ToList();
             
@@ -136,7 +137,8 @@ namespace EASV.PetShop.UI
         {
             ShowAllPetTypes();
 
-            List<Pet> pets = _petService.GetAllPets();
+            List<Pet> pets = _petService.ReadAllPets();
+            
             int choice = GetPetTypeSelection();
             
             foreach (Pet pet in pets)
@@ -145,13 +147,12 @@ namespace EASV.PetShop.UI
                 {
                     Console.WriteLine("Name: " + pet.Name);
                 }
-                Console.WriteLine("\n");
             }
         }
         
         private void CreatePet()
         {
-            List<Pet> pets = _petService.GetAllPets();
+            List<Pet> pets = _petService.ReadAllPets();
             Pet pet = new Pet();
             
             Console.WriteLine(StringConstants.Id);
@@ -273,12 +274,7 @@ namespace EASV.PetShop.UI
                     }
                     
                     _petService.UpdatePetType(idToUpdate, _petTypeService.GetPetType(GetPetTypeSelection()));
-
-                    List<Pet> pets = _petService.GetAllPets();
-                    foreach (Pet pet in pets)
-                    {
-                        Console.WriteLine(pet.Name + " " + pet.Type.Name);
-                    }
+                    
                     Console.WriteLine("\n");
                 }
 
@@ -338,9 +334,10 @@ namespace EASV.PetShop.UI
             Console.WriteLine(StringConstants.SelectDeletePet);
             Console.WriteLine(StringConstants.SelectUpdatePet);
             Console.WriteLine(StringConstants.SelectSearchByType);
-            Console.WriteLine(StringConstants.SelectExitApplication);
             Console.WriteLine(StringConstants.SelectShowMostExpensivePets);
             Console.WriteLine(StringConstants.SelectShowCheapestPets);
+            Console.WriteLine(StringConstants.SelectExitApplication);
+
             Console.WriteLine("\n");
         }
 
