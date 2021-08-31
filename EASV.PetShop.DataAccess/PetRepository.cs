@@ -116,7 +116,7 @@ namespace EASV.PetShop.DataAccess
 
             pets.First(pet => pet.Id == id).Name = name;
             
-            Console.WriteLine("Name has been updated to: " + name);
+            Console.WriteLine("Name has been updated to: " + name + ", press 0 to go back");
             
             foreach (Pet pet in pets)
             {
@@ -130,7 +130,7 @@ namespace EASV.PetShop.DataAccess
 
             pets.First(pet => pet.Id == id).Id = newId;
             
-            Console.WriteLine("Id has been updated to: " + newId);
+            Console.WriteLine("Id has been updated to: " + newId + ", press 0 to go back");
             
             foreach (Pet pet in pets)
             {
@@ -144,7 +144,7 @@ namespace EASV.PetShop.DataAccess
 
             pets.First(pet => pet.Id == id).Type = type;
             
-            Console.WriteLine("Pet type has been updated to: " + type.Name);
+            Console.WriteLine("Pet type has been updated to: " + type.Name + ", press 0 to go back");
             
             foreach (Pet pet in pets)
             {
@@ -158,7 +158,7 @@ namespace EASV.PetShop.DataAccess
 
             pets.First(pet => pet.Id == id).BirthDate = birthdate;
             
-            Console.WriteLine("Birthdate has been updated to: " + birthdate);
+            Console.WriteLine("Birthdate has been updated to: " + birthdate+ ", press 0 to go back");
             
             foreach (Pet pet in pets)
             {
@@ -172,7 +172,7 @@ namespace EASV.PetShop.DataAccess
 
             pets.First(pet => pet.Id == id).SoldDate = soldDate;
             
-            Console.WriteLine("Sold date has been updated to: " + soldDate);
+            Console.WriteLine("Sold date has been updated to: " + soldDate+ ", press 0 to go back");
             
             foreach (Pet pet in pets)
             {
@@ -186,7 +186,7 @@ namespace EASV.PetShop.DataAccess
 
             pets.First(pet => pet.Id == id).Color = color;
             
-            Console.WriteLine("Color has been updated to: " + color);
+            Console.WriteLine("Color has been updated to: " + color+ ", press 0 to go back");
             
             foreach (Pet pet in pets)
             {
@@ -201,7 +201,7 @@ namespace EASV.PetShop.DataAccess
 
             pets.First(pet => pet.Id == id).Price = price;
             
-            Console.WriteLine("Price has been updated to: " + price);
+            Console.WriteLine("Price has been updated to: " + price+ ", press 0 to go back");
             
             foreach (Pet pet in pets)
             {
