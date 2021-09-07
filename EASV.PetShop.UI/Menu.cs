@@ -73,33 +73,43 @@ namespace EASV.PetShop.UI
 
             foreach (Pet pet in allPets)
             {
-                Console.WriteLine("Id: " + pet.Id + " Name: " + pet.Name + " Color: " + pet.Color + " Type: " + pet.Type.Name + " Birthdate: " + pet.BirthDate + " Price: " + pet.Price + " SoldDate: " + pet.SoldDate);
+                Console.WriteLine("Id: " + pet.Id + " | Name: " + pet.Name + " | Color: " + pet.Color + 
+                                  " | Type: " + pet.Type.Name + " | Birthdate: " + pet.BirthDate + " | Price: " 
+                                  + pet.Price + " | SoldDate: " + pet.SoldDate);
             }
             Console.WriteLine("\n");
         }
 
         private void ShowCheapestPets()
         {
+            Console.WriteLine("\n");
             List<Pet> pets = _petService.ReadAllPets();
 
             List<Pet> sortedPets = pets.OrderBy(pet => pet.Price).ToList();
+            
+            Console.WriteLine("The cheapest pets:");
+            Console.WriteLine("\n");
 
             foreach (Pet pet in sortedPets)
             {
-                Console.WriteLine("Name: " + pet.Name + " Price: " + pet.Price);
+                Console.WriteLine("Name: " + pet.Name + " | Price: " + pet.Price);
             }
             Console.WriteLine("\n");
         }
 
         private void ShowMostExpensivePets()
         {
+            Console.WriteLine("\n");
             List<Pet> pets = _petService.ReadAllPets();
 
             List<Pet> sortedPets = pets.OrderByDescending(pet => pet.Price).ToList();
             
+            Console.WriteLine("The most expensive pets:");
+            Console.WriteLine("\n");
+            
             foreach (Pet pet in sortedPets)
             {
-                Console.WriteLine("Name: " + pet.Name + " Price: " + pet.Price);
+                Console.WriteLine("Name: " + pet.Name + " | Price: " + pet.Price);
             }
             Console.WriteLine("\n");
         }
@@ -110,7 +120,7 @@ namespace EASV.PetShop.UI
 
             foreach (PetType petType in petTypes)
             {
-                Console.WriteLine("Id: " + petType.Id + " Name: " + petType.Name);
+                Console.WriteLine("Id: " + petType.Id + " | Name: " + petType.Name);
             }
         }
         
@@ -208,9 +218,10 @@ namespace EASV.PetShop.UI
             pets.Add(pet);
             
             Console.WriteLine("You have added a new pet");
-            Console.WriteLine(" Id: " + pet.Id + " Name: " + pet.Name + " Color: " + pet.Color + " Type: "
-                              + pet.Type + " Price: " + pet.Price + " Birthdate: " + pet.BirthDate
-                              + " Sold date: " + pet.SoldDate);
+            Console.WriteLine("\n");
+            Console.WriteLine(" Id: " + pet.Id + " | Name: " + pet.Name + " | Color: " + pet.Color + " | Type: "
+                              + pet.Type + " | Price: " + pet.Price + " | Birthdate: " + pet.BirthDate
+                              + " | Sold date: " + pet.SoldDate);
         }
 
         private void UpdatePet()
@@ -270,7 +281,7 @@ namespace EASV.PetShop.UI
                     
                     foreach (PetType petType in petTypes)
                     {
-                        Console.WriteLine("Id: " + petType.Id + " Name: " + petType.Name);
+                        Console.WriteLine("Id: " + petType.Id + " | Name: " + petType.Name);
                     }
                     
                     _petService.UpdatePetType(idToUpdate, _petTypeService.GetPetType(GetPetTypeSelection()));
