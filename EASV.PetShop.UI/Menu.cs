@@ -145,12 +145,17 @@ namespace EASV.PetShop.UI
         
         private void GetPetByPetType()
         {
+            Console.WriteLine("Pick a pet type by typing the id and hit enter");
+            Console.WriteLine("\n");
+            
             ShowAllPetTypes();
 
             List<Pet> pets = _petService.ReadAllPets();
             
             int choice = GetPetTypeSelection();
             
+            Console.WriteLine("\n");
+
             foreach (Pet pet in pets)
             {
                 if (choice.Equals(pet.Type.Id))
@@ -158,6 +163,8 @@ namespace EASV.PetShop.UI
                     Console.WriteLine("Name: " + pet.Name);
                 }
             }
+            
+            Console.WriteLine("\n");
         }
         
         private void CreatePet()
